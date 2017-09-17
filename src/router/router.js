@@ -1,17 +1,14 @@
 import React from 'react';
 
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import {Provider} from 'mobx-react';
-import * as stores from 'stores';
+import {Route, Switch} from 'react-router-dom';
 
 import Bundle from './Bundle';
+import Loading from 'components/Loading/Loading';
+import Nav from 'components/Nav/Nav';
 
 import Home from 'bundle-loader?lazy&name=home!pages/Home/Home';
 import Page1 from 'bundle-loader?lazy&name=page1!pages/Page1/Page1';
-
-const Loading = function () {
-    return <div>Loading...</div>
-};
+import NotFound from 'bundle-loader?lazy&name=notFound!pages/NotFound/NotFound';
 
 //懒加载
 const createComponent = (component) => () => (
@@ -22,22 +19,16 @@ const createComponent = (component) => () => (
     </Bundle>
 );
 
-
 const getRouter = () => (
-    <Provider {...stores}>
-        <Router>
-            <div>
-                <ul>
-                    <li><Link to="/">首页</Link></li>
-                    <li><Link to="/page1">Page1</Link></li>
-                </ul>
-                <Switch>
-                    <Route exact path="/" component={createComponent(Home)}/>
-                    <Route path="/page1" component={createComponent(Page1)}/>
-                </Switch>
-            </div>
-        </Router>
-    </Provider>
-);
+    <div>
+        <Nav/>
+        <Switch>
+            <Route exact path="/" component={createComponent(Home)}/>
+            <Route path="/page1" component={createComponent(Page1)}/>
+            <Route component={createComponent(NotFound)}/>
+        </Switch>
+    </div>
 
+);
 export default getRouter;
+
