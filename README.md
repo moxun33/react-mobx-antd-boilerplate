@@ -23,7 +23,7 @@ UI框架方面，将接入 <https://ant.design/index-cn>
 
 1 npm install
 
-2 npm start
+2 npm run dev
 
 3 浏览器打开http://localhost:3001
 
