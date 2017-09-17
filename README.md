@@ -1,5 +1,5 @@
 # react-mobx-antd-boilerplate 开箱即用
-参考该教程[从零搭建react-family框架教程](https://github.com/brickspert/blog/issues/1)搭建的 react 全家桶框架，与文章不同的是此处使用的 mobx 座位状态管理器，其他部分也作了相应的调整。
+参考该教程[从零搭建react-family框架教程](https://github.com/brickspert/blog/issues/1)搭建的 react 全家桶框架，与文章不同的是此处使用的 mobx  作为状态管理器，其他部分也作了相应的调整。
 
 UI框架方面，将接入 <https://ant.design/index-cn>
 
