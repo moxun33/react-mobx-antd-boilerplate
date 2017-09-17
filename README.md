@@ -18,7 +18,9 @@ UI框架方面，将接入 <https://ant.design/index-cn>
 
 6 axios 请求和响应拦截器
 
-7 ETC
+7 懒加载
+
+8 etc
 
 # 开发坏境启动
 
