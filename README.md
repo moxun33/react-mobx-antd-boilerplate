@@ -7,7 +7,7 @@ UI框架方面，将接入 <https://ant.design/index-cn>
 
 1 react router4 路由和导航
 
-2 mobx 状态管理机
+2 mobx 状态管理机，支持多个 stores 文件
 
 3 跨域代理
 
@@ -15,7 +15,7 @@ UI框架方面，将接入 <https://ant.design/index-cn>
 
 5 图片加载
 
-6 axios 请求和相应拦截器
+6 axios 请求和响应拦截器
 
 7 ETC
 
