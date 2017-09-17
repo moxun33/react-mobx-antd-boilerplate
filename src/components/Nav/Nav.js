@@ -11,6 +11,7 @@ export default class Nav extends Component {
                 <ul>
                     <li><Link to="/">首页</Link></li>
                     <li><Link to="/page1">Page1</Link></li>
+                    <li><Link to="/antd">Ant design</Link></li>
                 </ul>
 
         )
