@@ -21,7 +21,7 @@ commonConfig = {
             use: ['babel-loader?cacheDirectory=true'],
             include: path.join(__dirname, 'src')
         }, {
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpg|gif|ico|jpeg|bmp)$/,
             use: [{
                 loader: 'url-loader',
                 options: {
@@ -32,6 +32,7 @@ commonConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            favicon:'',
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.html')
         }),
