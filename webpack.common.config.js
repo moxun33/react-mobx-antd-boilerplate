@@ -47,8 +47,8 @@ commonConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            favicon:'',
             filename: 'index.html',
+            favicon: 'src/assets/favicon.ico',
             template: path.join(__dirname, 'src/index.html')
         }),
         new webpack.HashedModuleIdsPlugin(),
@@ -63,11 +63,14 @@ commonConfig = {
 
     resolve: {
         alias: {
+            assets: path.join(__dirname, 'src/assets'),
             pages: path.join(__dirname, 'src/pages'),
             components: path.join(__dirname, 'src/components'),
             router: path.join(__dirname, 'src/router'),
             stores: path.join(__dirname, 'src/stores')
-        }
+        },
+        modules: [path.join(__dirname, 'src'), 'node_modules'],
+        extensions: [".js", ".jsx"]
     },
 };
 

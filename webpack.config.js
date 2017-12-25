@@ -20,7 +20,18 @@ const publicConfig = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist/*.*']),
-        new UglifyJSPlugin(),
+        new UglifyJSPlugin(
+            {
+                compress:{
+                    warnings: false,
+                    drop_debugger: true,
+                    drop_console: true
+                },
+                output: {
+                    comments: false
+                }
+            }
+        ),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
