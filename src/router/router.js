@@ -27,6 +27,7 @@ const getRouter = () => (
             <Route exact path="/" component={createComponent(Home)}/>
             <Route path="/page1" component={createComponent(Page1)}/>
             <Route path="/antd" component={createComponent(Antd)}/>
+
             <Route component={createComponent(NotFound)}/>
         </Switch>
     </div>

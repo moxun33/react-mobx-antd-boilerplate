@@ -28,6 +28,21 @@ commonConfig = {
                     limit: 8192
                 }
             }]
+        }, {
+            test: /\.less$/,
+            use: [
+
+                'style-loader',
+                { loader: 'css-loader', options: { importLoaders: 1 } },
+                'postcss-loader',
+                {loader:'less-loader', options: {
+                    modifyVars: {
+                        //http://ip/iconfont
+                        // '@icon-url': '"/fonts/iconfont/iconfont"',
+                        // "@primary-color": "#7bceda"
+                    }
+                }}
+            ]
         }]
     },
     plugins: [
