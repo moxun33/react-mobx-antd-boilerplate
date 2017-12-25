@@ -6,7 +6,7 @@ import getRouter from 'router/router';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'mobx-react';
 import * as stores from 'stores';
-
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 /*初始化*/
 renderWithHotReload(getRouter());
 /*热更新*/
@@ -28,4 +28,5 @@ function renderWithHotReload(RootElement) {
         </AppContainer>,
         document.getElementById('app')
     )
+    OfflinePluginRuntime.install();
 }

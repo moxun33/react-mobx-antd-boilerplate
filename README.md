@@ -22,7 +22,9 @@ UI框架方面，集成了 <https://ant.design/index-cn>
 
 7 懒加载
 
-8 etc
+8  支持 Service Worker(生产环境)
+
+9 etc
 
 # 开发坏境启动
 

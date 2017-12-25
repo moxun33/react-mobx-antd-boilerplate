@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const OfflinePlugin = require('offline-plugin');
 const commonConfig = require('./webpack.common.config.js');
 
 const publicConfig = {
@@ -40,7 +40,9 @@ const publicConfig = {
         new ExtractTextPlugin({
             filename: '[name].[contenthash:5].css',
             allChunks: true
-        })
+        }),
+        // it's always better if OfflinePlugin is the last plugin added
+        new OfflinePlugin()
     ]
 
 };
