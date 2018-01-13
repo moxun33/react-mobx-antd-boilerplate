@@ -1,8 +1,9 @@
 const merge = require('webpack-merge');
 const path = require('path');
 
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const commonConfig = require('./webpack.common.config.js');
-
+const devUrl = 'http://localhost:3000'
 const devConfig = {
     //devtool: 'inline-source-map',//加了导致热更新很慢.,未知原因
     entry: {
@@ -35,13 +36,16 @@ const devConfig = {
         host: "0.0.0.0",
         proxy: {
             "/api": {
-                target: "http://localhost:3000",//根据实际情况更改
+                target: devUrl,//根据实际情况更改
                 pathRewrite: {"^/api": ""}
             }
         },
 
 
     },
+    plugins: [
+		new OpenBrowserPlugin({ url: devUrl })
+	]
 };
 
 module.exports = merge({

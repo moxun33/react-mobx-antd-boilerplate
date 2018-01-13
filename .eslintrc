@@ -1,0 +1,29 @@
+{
+    "extends": "eslint:recommended",
+  
+    "ecmaFeatures": {
+      "sourceType": "module"
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "env" : {
+      "browser" : true,
+      "es6" : true,
+      "node": true
+    },
+  
+    "rules": {
+      "no-mixed-spaces-and-tabs": "off",
+      "camelcase": "warn",
+      "eqeqeq": "warn",
+      "curly": "error",
+      "no-undef": "error",
+      "no-unused-vars": [0, { "vars": "all", "args": "none" }],
+      "max-params": "warn"
+    }
+  }
