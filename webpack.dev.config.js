@@ -3,7 +3,7 @@ const path = require('path');
 
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const commonConfig = require('./webpack.common.config.js');
-const devUrl = 'http://localhost:3000'
+const devUrl = 'http://localhost:3001'
 const devConfig = {
     //devtool: 'inline-source-map',//加了导致热更新很慢.,未知原因
     entry: {
