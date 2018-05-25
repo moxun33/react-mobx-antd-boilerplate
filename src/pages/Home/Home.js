@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {PropTypes} from 'prop-types';
 import Login from 'components/Login'
 
 export default class Home extends Component {

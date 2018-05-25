@@ -1,12 +1,20 @@
 {
   "presets": [
-    "es2015",
+    [
+      "latest",
+      {
+        "loose": true,
+        "modules": false
+      }
+    ],
     "react",
+    "es2015",
     "stage-0"
   ],
   "plugins": [
     "transform-decorators-legacy",
     "react-hot-loader/babel",
+
     ["import", { libraryName: "antd", style: true }]
   ]
 }
