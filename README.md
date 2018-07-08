@@ -8,15 +8,15 @@ UI框架方面，集成了 <https://ant.design/index-cn>
 
 # 基础功能
 
-1 react router4 路由和导航
+1 react router4 路由
 
 2 mobx 状态管理机，支持多个 stores 文件
 
 3 跨域代理
 
-4 css 加载
+4 chunks build
 
-5 图片加载
+5 ESLint、prettier 和 styleLint
 
 6 axios 请求和响应拦截器
 

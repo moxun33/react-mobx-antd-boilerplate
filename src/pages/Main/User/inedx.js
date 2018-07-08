@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { List, Avatar } from 'antd';
-import './Page1.less';
+import './style.less';
 import image from './images/show.png';
 const data = [
     {
@@ -16,7 +16,7 @@ const data = [
         title: 'Ant Design Title 4',
     },
 ];
-export default class Page1 extends Component {
+export default class Inedx extends Component {
     render() {
         return (
             <div  >

@@ -1,34 +1,21 @@
 import React from 'react';
 
 import {Route, Switch} from 'react-router-dom';
-
-import Bundle from './Bundle';
-import Loading from 'components/Loading/Loading';
-import Nav from 'components/Nav/Nav';
-
-import Home from 'bundle-loader?lazy&name=home!pages/Home/Home';
-import Page1 from 'bundle-loader?lazy&name=page1!pages/Page1/Page1';
-import Antd from 'bundle-loader?lazy&name=antd!pages/Antd/Antd';
+import {createBundle} from 'components/Common'
+import Login from 'bundle-loader?lazy&name=login!pages/Login';
+import Home from 'bundle-loader?lazy&name=home!pages/Main/Home';
+import User from 'bundle-loader?lazy&name=User!pages/Main/User';
+import Antd from 'bundle-loader?lazy&name=antd!pages/Main/Antd';
 import NotFound from 'bundle-loader?lazy&name=notFound!pages/NotFound/NotFound';
 
-//懒加载
-const createComponent = (component) => () => (
-    <Bundle load={component}>
-        {
-            (Component) => Component ? <Component/> : <Loading/>
-        }
-    </Bundle>
-);
-
-const getRouter = () => (
+const getRouter = _ => (
     <div>
-        <Nav/>
+        
         <Switch>
-            <Route exact path="/" component={createComponent(Home)}/>
-            <Route path="/page1" component={createComponent(Page1)}/>
-            <Route path="/antd" component={createComponent(Antd)}/>
-
-            <Route component={createComponent(NotFound)}/>
+            <Route exact path="/" component={createBundle(Home)}/>
+            <Route exact path="/user" component={createBundle(User)}/>
+            <Route exact path="/antd" component={createBundle(Antd)}/>
+            <Route component={createBundle(NotFound)}/>
         </Switch>
     </div>
 

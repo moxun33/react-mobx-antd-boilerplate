@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import { Button,DatePicker } from 'antd';
 
-export default class Antd extends Component {
+export default class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
