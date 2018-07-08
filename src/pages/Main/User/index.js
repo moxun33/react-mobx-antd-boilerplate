@@ -4,23 +4,36 @@ import './style.less';
 import image from './images/show.png';
 const data = [
     {
-        title: 'Ant Design Title 1',
+        name: '用户1',
+        id: 1
     },
     {
-        title: 'Ant Design Title 2',
+        name: '用户 2',
+        id: 2
     },
     {
-        title: 'Ant Design Title 3',
+        name: '用户3',
+        id: 3
     },
     {
-        title: 'Ant Design Title 4',
+        name: '用户 4',
+        id: 4
     },
 ];
 export default class Index extends Component {
+
+
+    onUserClick = user => {
+        console.log(user)
+    }
+    
     render() {
+
+
+
         return (
             <div  >
-                ant-design 3新增的 List 组件
+                User List
                 <List
                     itemLayout="horizontal"
                     dataSource={data}
@@ -28,8 +41,8 @@ export default class Index extends Component {
                         <List.Item>
                             <List.Item.Meta
                                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                                title={<a href="https://ant.design">{item.title}</a>}
-                                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                                title={<a onClick={() =>this.onUserClick(item)}>{item.name}</a>}
+                                description="我是一个前端开发者， 也做过PHP 和 iOS 开发，热衷研究各种技术！"
                             />
                         </List.Item>
                     )}
