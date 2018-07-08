@@ -9,18 +9,18 @@ import Login from 'bundle-loader?lazy&name=login!pages/Login';
 import Main from 'bundle-loader?lazy&name=main!pages/Main';
 import {observer, inject} from 'mobx-react';
 import { Route,  } from 'react-router-dom';
-@inject('appStore')
+@inject('loginStore')
 @observer
 export default class App extends Component {
 
     render() {
-        const { isLogined } = this.props.appStore;
+        const { logined } = this.props.loginStore;
         return (
             <div>
                 {
-                    isLogined ?
-                        createBundle(Main)
-                        : <Route components={createBundle(Login)}/>
+                    logined ?
+                        createBundle(Main)()
+                        : <Route component={createBundle(Login)}/>
                 }
 
             </div>

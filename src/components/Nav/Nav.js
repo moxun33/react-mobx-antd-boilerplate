@@ -26,13 +26,13 @@ export default class Nav extends Component {
                 mode="horizontal"
             >
                 <Menu.Item key="index">
-                    <Icon type="home"/><Link to="/">首页</Link>
+                     <Link to="/">首页</Link>
                 </Menu.Item>
                 <Menu.Item key="user" >
-                    <Icon type="user"/><Link to="/user">用户</Link>
+                     <Link to="/user">用户</Link>
                 </Menu.Item>
                 <Menu.Item key="antd" >
-                    <Icon type="antd"/><Link to="/antd">Antd</Link>
+                     <Link to="/antd">Antd</Link>
                 </Menu.Item>
             </Menu>
 

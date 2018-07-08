@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
-import { Form, Icon, Input, Button } from 'antd';
-
+import { Form, message, Icon, Input, Button } from 'antd';
+import {withRouter} from 'react-router-dom'
 const FormItem = Form.Item;
 
 function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-@inject('loginStore') @observer
+@inject('loginStore') @observer @withRouter
 class HorizontalLoginForm extends React.Component {
 
     changeUsername = (e) => {
@@ -27,6 +27,12 @@ class HorizontalLoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
+                this.props.loginStore.loginSubmit(values, () => {
+                    //callback
+                    message.success('登录成功');
+
+                    this.props.history.push('/')
+                } )
                 console.log('Received values of form: ', values);
             }
         });

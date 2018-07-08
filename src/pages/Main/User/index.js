@@ -16,7 +16,7 @@ const data = [
         title: 'Ant Design Title 4',
     },
 ];
-export default class Inedx extends Component {
+export default class Index extends Component {
     render() {
         return (
             <div  >
