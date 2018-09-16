@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import {createBundle} from 'components/Common'
 
 import UserListLayout from 'bundle-loader?lazy&name=UserListLayout!./List'
+import NotFound from 'bundle-loader?lazy&name=notFound!pages/NotFound/NotFound';
 
 import UserDetailLayout from 'bundle-loader?lazy&name=UserDetailLayout!./List'
 import {withRouter} from 'react-router-dom'
