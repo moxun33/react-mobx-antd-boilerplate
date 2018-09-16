@@ -22,8 +22,8 @@ export default class UserLayout extends Component {
             <div  >
             <Switch>
           
-            <Route exact path={this.match.path} component={createBundle(UserListLayout)}/>
-            <Route exact path={this.match.path+'/detail/:id(\\d)/:name'} component={createBundle(UserDetailLayout)}/>
+            <Route exact path={this.props.match.path} component={createBundle(UserListLayout)}/>
+            <Route exact path={this.props.match.path+'/detail/:id(\\d)/:name'} component={createBundle(UserDetailLayout)}/>
             <Route component={createBundle(NotFound)}/>
         </Switch>
             </div>
