@@ -1,31 +1,18 @@
-import React, {Component} from 'react';
-import { List, Avatar } from 'antd';
-import './style.less';
-import image from './images/show.png';
-const data = [
-    {
-        name: '用户1',
-        id: 1
-    },
-    {
-        name: '用户 2',
-        id: 2
-    },
-    {
-        name: '用户3',
-        id: 3
-    },
-    {
-        name: '用户 4',
-        id: 4
-    },
-];
-export default class Index extends Component {
+import React ,{Component}from 'react';
 
+import {Route, Switch} from 'react-router-dom';
+import {createBundle} from 'components/Common'
 
-    onUserClick = user => {
-        console.log(user)
+import UserListLayout from 'bundle-loader?lazy&name=UserListLayout!./List'
+
+import UserDetailLayout from 'bundle-loader?lazy&name=UserDetailLayout!./List'
+import {withRouter} from 'react-router-dom'
+@withRouter 
+export default class UserLayout extends Component {
+    constructor(props) {
+        super(props)
     }
+ 
     
     render() {
 
@@ -33,20 +20,12 @@ export default class Index extends Component {
 
         return (
             <div  >
-                User List
-                <List
-                    itemLayout="horizontal"
-                    dataSource={data}
-                    renderItem={item => (
-                        <List.Item>
-                            <List.Item.Meta
-                                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                                title={<a onClick={() =>this.onUserClick(item)}>{item.name}</a>}
-                                description="我是一个前端开发者， 也做过PHP 和 iOS 开发，热衷研究各种技术！"
-                            />
-                        </List.Item>
-                    )}
-                />
+            <Switch>
+          
+            <Route exact path={this.match.path} component={createBundle(UserListLayout)}/>
+            <Route exact path={this.match.path+'/detail/:id(\\d)/:name'} component={createBundle(UserDetailLayout)}/>
+            <Route component={createBundle(NotFound)}/>
+        </Switch>
             </div>
         )
     }
