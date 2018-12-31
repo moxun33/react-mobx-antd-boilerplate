@@ -7,12 +7,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HXHappyPackUtils = require('./utils/HappyPacks.js')
 const happyRules = HXHappyPackUtils.HPWPRules;
 const happyPlugins = HXHappyPackUtils.HPWPPlugins
- 
+
 //公共配置
 const commonConfig = {
 	entry: {
 		app: [path.join(__dirname, '../src/index.js')],
-		hxrcs: ['hxrcs'] //分离第三方库,可自定义增加,其他包在 dll 中分离
+		 //分离第三方库,可自定义增加,其他包在 dll 中分离
 	},
 	output: {
 		path: path.join(__dirname, '../dist'),
@@ -53,12 +53,8 @@ const commonConfig = {
 			},
 			inject: true
 		}),
-		/*若使用了 PDFView  必须做 copy 操作*/
 		new CopyWebpackPlugin([
-			{
-				from: 'node_modules/hxrcs/lib/dist/cmaps/',
-				to: 'cmaps/'
-			}
+
 		])
 	],
 
@@ -67,7 +63,7 @@ const commonConfig = {
 		modules: [path.join(__dirname, '../src'), 'node_modules'],
 		extensions: ['.js', '.jsx']
 	},
- 
+
 };
 
 module.exports = commonConfig;
