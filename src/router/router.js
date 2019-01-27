@@ -10,7 +10,7 @@ const getRouter = _ => (
   <div>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/user" component={User} />
+      <Route path="/user" component={User} />
       <Route exact path="/antd" component={Antd} />
       {createNotFoundRoute()}
     </Switch>

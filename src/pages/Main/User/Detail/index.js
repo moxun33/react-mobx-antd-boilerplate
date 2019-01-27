@@ -7,9 +7,6 @@ export default class UserDetail extends Component {
     this.matchParams = props.match.params;
   }
 
-  onUserClick = user => {
-    console.log(user);
-  };
 
   render() {
     return (

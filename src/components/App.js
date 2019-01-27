@@ -17,7 +17,7 @@ export default class App extends Component {
     const { logined } = this.props.loginStore;
     return (
       <div>
-        {' '}
+
         <Route component={logined ? Main : Login} />
       </div>
     );
