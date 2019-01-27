@@ -9,9 +9,9 @@ import { createNotFoundRoute } from '../utils/router';
 const getRouter = _ => (
   <div>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/user" component={User} />
-      <Route exact path="/antd" component={Antd} />
+      <Route exact path='/' component={Home} />
+      <Route path='/user' component={User} />
+      <Route exact path='/antd' component={Antd} />
       {createNotFoundRoute()}
     </Switch>
   </div>

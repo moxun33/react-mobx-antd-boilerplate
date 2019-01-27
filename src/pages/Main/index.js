@@ -8,15 +8,16 @@ import getRouter from 'router/router';
 import Nav from 'components/Nav/Nav';
 import { Layout, Breadcrumb } from 'antd';
 import './style.less';
+import { withRouter } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
 export default class index extends Component {
   render() {
     return (
       <div>
-        <Layout className="layout">
+        <Layout className='layout'>
           <Header>
-            <div className="logo" />
+            <div className='logo' />
             <Nav />
           </Header>
           <Content style={{ padding: '0 50px' }}>

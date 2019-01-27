@@ -5,7 +5,7 @@ export default class Loading extends Component {
   render() {
     return (
       <div className={'my-loading'}>
-        <Spin size="large" />
+        <Spin size='large' />
       </div>
     );
   }
