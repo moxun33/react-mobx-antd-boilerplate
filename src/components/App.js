@@ -3,27 +3,23 @@
  *
  **/
 
-import React, {Component, PropTypes} from 'react';
-import {createBundle} from 'components/Common'
-import Login from 'bundle-loader?lazy&name=login!pages/Login';
-import Main from 'bundle-loader?lazy&name=main!pages/Main';
-import {observer, inject} from 'mobx-react';
-import { Route,  } from 'react-router-dom';
+import React, { Component, PropTypes } from 'react';
+
+import AsyncComponent from 'components/AsyncComponent';
+const Login = AsyncComponent(() => import('pages/Login'));
+const Main = AsyncComponent(() => import('pages/Main'));
+import { observer, inject } from 'mobx-react';
+import { Route } from 'react-router-dom';
 @inject('loginStore')
 @observer
 export default class App extends Component {
-
-    render() {
-        const { logined } = this.props.loginStore;
-        return (
-            <div>
-                {
-                    logined ?
-                        createBundle(Main)()
-                        : <Route component={createBundle(Login)}/>
-                }
-
-            </div>
-        )
-    }
+  render() {
+    const { logined } = this.props.loginStore;
+    return (
+      <div>
+        {' '}
+        <Route component={logined ? Main : Login} />
+      </div>
+    );
+  }
 }

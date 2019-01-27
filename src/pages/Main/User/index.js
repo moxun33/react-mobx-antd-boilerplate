@@ -1,33 +1,30 @@
-import React ,{Component}from 'react';
+import React, { Component } from 'react';
 
-import {Route, Switch} from 'react-router-dom';
-import {createBundle} from 'components/Common'
+import { Route, Switch } from 'react-router-dom';
 
-import UserListLayout from 'bundle-loader?lazy&name=UserListLayout!./List'
-import NotFound from 'bundle-loader?lazy&name=notFound!pages/NotFound/NotFound';
-
-import UserDetailLayout from 'bundle-loader?lazy&name=UserDetailLayout!./List'
-import {withRouter} from 'react-router-dom'
-@withRouter 
+import AsyncComponent from 'components/AsyncComponent';
+const UserListLayout = AsyncComponent(() => import('./List'));
+const UserDetailLayout = AsyncComponent(() => import('./Detail'));
+import { withRouter } from 'react-router-dom';
+import { createNotFoundRoute } from '../../../utils/router';
+@withRouter
 export default class UserLayout extends Component {
-    constructor(props) {
-        super(props)
-    }
- 
-    
-    render() {
+  constructor(props) {
+    super(props);
+  }
 
-
-
-        return (
-            <div  >
-            <Switch>
-          
-            <Route exact path={this.props.match.path} component={createBundle(UserListLayout)}/>
-            <Route exact path={this.props.match.path+'/detail/:id(\\d)/:name'} component={createBundle(UserDetailLayout)}/>
-            <Route component={createBundle(NotFound)}/>
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route exact path={this.props.match.path} component={UserListLayout} />
+          <Route
+            path={this.props.match.path + '/detail/:id(\\d)/:name'}
+            component={UserDetailLayout}
+          />
+          {createNotFoundRoute()}
         </Switch>
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }

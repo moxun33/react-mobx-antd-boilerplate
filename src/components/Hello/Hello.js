@@ -1,11 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 export default class Hello extends Component {
-    render() {
-        return (
-            <div>
-                Hello,React11!
-            </div>
-        )
-    }
+  render() {
+    return <div>Hello,React11!</div>;
+  }
 }

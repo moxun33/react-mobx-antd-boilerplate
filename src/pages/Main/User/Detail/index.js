@@ -1,25 +1,22 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
-@withRouter 
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+@withRouter
 export default class UserDetail extends Component {
-    constructor(props) {
-           super(props)
-        this.matchParams = props.match.params;
-    }
+  constructor(props) {
+    super(props);
+    this.matchParams = props.match.params;
+  }
 
-    onUserClick = user => {
-        console.log(user)
-    }
-    
-    render() {
+  onUserClick = user => {
+    console.log(user);
+  };
 
-
-
-        return (
-            <div  >
-                User Id{this.matchParams.id}
-                <p>User name {this.matchParams.name}</p>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        User Id{this.matchParams.id}
+        <p>User name {this.matchParams.name}</p>
+      </div>
+    );
+  }
 }

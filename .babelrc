@@ -1,5 +1,4 @@
 {
-
   "presets": [
     ["env", {
       "targets": {
@@ -14,7 +13,6 @@
     "react-hot-loader/babel",
     ["transform-runtime"],
     "transform-decorators-legacy",
-    "lodash",
     ["import", { "libraryName": "antd", "style": true }]
   ]
 }
