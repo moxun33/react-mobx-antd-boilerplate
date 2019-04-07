@@ -34,7 +34,7 @@ const commonConfig = {
 		...happyPlugins,
 		new WebpackBar({ profile: true, minimal: false }),
 		new HtmlWebpackPlugin({
-			title: '和信保理ABS业务平台',
+			title: 'react-antd脚手架',
 			filename: 'index.html',
 			favicon: path.join(__dirname, '../src/assets/favicon.ico'),
 			template: path.join(__dirname, '../src/index.html'),

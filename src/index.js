@@ -19,5 +19,5 @@ ReactDom.render(
       </Provider>
     </AppContainer>
   </LocaleProvider>,
-  document.getElementById('app')
+  document.getElementById('root')
 );
