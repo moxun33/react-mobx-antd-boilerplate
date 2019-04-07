@@ -4,9 +4,7 @@ import { withRouter } from 'react-router-dom';
 export default class UserDetail extends Component {
   constructor(props) {
     super(props);
-
   }
-
 
   render() {
     return (

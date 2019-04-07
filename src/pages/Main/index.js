@@ -3,7 +3,7 @@
  *
  **/
 
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import getRouter from 'router/router';
 import Nav from 'components/Nav/Nav';
 import { Layout, Breadcrumb } from 'antd';

@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist/*",
-    "dll": "rimraf dll/* webpack --config webpack/dll.config.js --mode production",
+    "dll": "rimraf dll/* && webpack --config webpack/dll.config.js --mode production",
     "dev": "cross-env NODE_ENV=development  webpack-dev-server --config webpack/dev.config.js  --color  --hot --inline",
-    "build": "cross-env NODE_ENV=production npm run clean &&  webpack --config webpack/build.config.js"
+    "build": "cross-env NODE_ENV=production yarn clean &&  webpack --config webpack/build.config.js"
   },
   "keywords": [
     "react",

@@ -14,23 +14,18 @@ export default class UserLayout extends Component {
   }
 
   componentWillReceiveProps(nextProps, nextContext) {
-    console.log(nextProps,100)
+    console.log(nextProps, 100);
   }
 
   render() {
-    const {match} = this.props;
+    const { match } = this.props;
 
     return (
       <div>
         <Switch>
-
           <Route exact path={match.path} component={UserListLayout} />
 
-          <Route
-            exact
-            path={match.path + '/detail/:id/:name'}
-            component={UserDetailLayout}
-          />
+          <Route exact path={match.path + '/detail/:id/:name'} component={UserDetailLayout} />
         </Switch>
       </div>
     );
