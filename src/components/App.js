@@ -3,8 +3,8 @@
  *
  **/
 
-import React, { Component, PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import {hot} from 'react-hot-loader'
 import AsyncComponent from 'components/AsyncComponent';
 const Login = AsyncComponent(() => import('pages/Login'));
 const Main = AsyncComponent(() => import('pages/Main'));
@@ -13,7 +13,7 @@ import { Route, withRouter } from 'react-router-dom';
 @withRouter//必须放在第一位，否则子路由不会刷新页面
 @inject('loginStore')
 @observer
-export default class App extends Component {
+class App extends Component {
   render() {
     const { logined } = this.props.loginStore;
     return (
@@ -24,3 +24,4 @@ export default class App extends Component {
     );
   }
 }
+export default hot(App)

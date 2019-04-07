@@ -8,25 +8,16 @@ import * as stores from 'stores';
 import App from 'components/App';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
-/*初始化*/
-renderWithHotReload(<App />);
 
-/*热更新*/
-if (module.hot) {
-  module.hot.accept('components/App', () => {
-    renderWithHotReload(<App />);
-  });
-}
-
-function renderWithHotReload(RootElement) {
-  ReactDom.render(
-    <LocaleProvider locale={zhCN}>
-      <AppContainer>
-        <Provider {...stores}>
-          <Router>{RootElement}</Router>
-        </Provider>
-      </AppContainer>
-    </LocaleProvider>,
-    document.getElementById('app')
-  );
-}
+ReactDom.render(
+  <LocaleProvider locale={zhCN}>
+    <AppContainer>
+      <Provider {...stores}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    </AppContainer>
+  </LocaleProvider>,
+  document.getElementById('app')
+);

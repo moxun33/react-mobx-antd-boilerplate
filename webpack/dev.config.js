@@ -52,7 +52,9 @@ const devConfig = {
 				NODE_ENV: JSON.stringify('development')
 			}
 		})
-	]
+	],resolve: {
+    alias: { 'react-dom': '@hot-loader/react-dom' } //仅开发环境
+  }
 };
 module.exports = merge({
 	customizeArray(a, b, key) {

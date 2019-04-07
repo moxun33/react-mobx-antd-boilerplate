@@ -3,12 +3,11 @@
  *
  **/
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component, } from 'react';
 import getRouter from 'router/router';
 import Nav from 'components/Nav/Nav';
 import { Layout, Breadcrumb } from 'antd';
 import './style.less';
-import { withRouter } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
 export default class index extends Component {
