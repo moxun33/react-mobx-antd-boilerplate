@@ -34,7 +34,9 @@ UI框架方面，集成了 <https://ant.design/index-cn>
 
 
 # 生产坏境部署
+
 1 生成dll包，`yarn dll`
+
 2 `yarn build`
 
 3 拷贝dist文件夹至服务器即可
