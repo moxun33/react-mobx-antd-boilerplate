@@ -2,8 +2,9 @@ const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
 const commonConfig = require('./common.config.js');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const UAT_URL = 'http://192.168.1.3:9000';
+const portfinder = require('portfinder'); // 自动检索下一个可用端口
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'); // 友好提示错误信息
+const UAT_URL = '', DEV_PORT=3005
 const devConfig = {
 	devtool: 'eval',
 	entry: {
@@ -21,7 +22,7 @@ const devConfig = {
 	},
   devServer: {
     contentBase: path.join(__dirname, './dist'),
-    port: 3005,
+    port: DEV_PORT,
     compress: true,
     historyApiFallback: true, /*{
             rewrites: [
@@ -47,7 +48,7 @@ const devConfig = {
     }
   },
 	plugins: [
-		new OpenBrowserPlugin({ url: 'http://localhost:3000' }),
+
 
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -56,7 +57,7 @@ const devConfig = {
 		})
 	]
 };
-module.exports = merge({
+const devWebpackConfig = merge({
 	customizeArray(a, b, key) {
 		/*entry.app不合并，全替换*/
 		if (key === 'entry.app') {
@@ -65,3 +66,22 @@ module.exports = merge({
 		return undefined;
 	}
 })(commonConfig, devConfig);
+
+module.exports = new Promise((resolve, reject) => {
+  portfinder.basePort = process.env.PORT||DEV_PORT; // 获取当前设定的端口
+  portfinder.getPort((err, port) => {
+    if (err) { reject(err) } else {
+      process.env.PORT = port; // process 公布端口
+      devWebpackConfig.devServer.port = port; // 设置 devServer 端口
+
+      devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({ // 错误提示插件
+        compilationSuccessInfo: {
+          messages: [`Your application is running here: http://localhost:${port}`],
+        },
+        onErrors:  undefined
+      }))
+
+      resolve(devWebpackConfig);
+    }
+  })
+})
