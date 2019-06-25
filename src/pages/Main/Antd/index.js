@@ -8,14 +8,12 @@ export default class Index extends Component {
   }
 
   render() {
-
     return (
       <div>
-        <Button type="primary" icon="user">
+        <Button type='primary' icon='user'>
           antd按钮
         </Button>
         <DatePicker />
-
       </div>
     );
   }

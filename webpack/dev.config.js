@@ -36,7 +36,7 @@ const devConfig = {
     proxy: {
 
       '/api': {
-        'target': UAT_URL + '/target',
+        'target':'http://localhost:8080',
         'pathRewrite': {
           '^/api': ''
         },
@@ -55,7 +55,9 @@ const devConfig = {
 				NODE_ENV: JSON.stringify('development')
 			}
 		})
-	]
+	],resolve: {
+    alias: { 'react-dom': '@hot-loader/react-dom' } //仅开发环境
+  }
 };
 const devWebpackConfig = merge({
 	customizeArray(a, b, key) {

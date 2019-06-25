@@ -3,17 +3,24 @@
  *
  **/
 
-import React, { Component, PropTypes } from 'react';
-import { createBundle } from 'components/Common';
-import Login from 'bundle-loader?lazy&name=login!pages/Login';
-import Main from 'bundle-loader?lazy&name=main!pages/Main';
+import React, { Component } from 'react';
+import { hot } from 'react-hot-loader/root';
+import AsyncComponent from 'components/AsyncComponent';
+const Login = AsyncComponent(() => import('pages/Login'));
+const Main = AsyncComponent(() => import('pages/Main'));
 import { observer, inject } from 'mobx-react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
+@withRouter //必须放在第一位，否则子路由不会刷新页面
 @inject('loginStore')
 @observer
-export default class App extends Component {
+class QMApp extends Component {
   render() {
     const { logined } = this.props.loginStore;
-    return <div>{logined ? createBundle(Main)() : <Route component={createBundle(Login)} />}</div>;
+    return (
+      <div>
+        <Route component={logined ? Main : Login} />
+      </div>
+    );
   }
 }
+export default hot(QMApp);

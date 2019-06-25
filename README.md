@@ -28,14 +28,15 @@ UI框架方面，集成了 <https://ant.design/index-cn>
 
 # 开发坏境启动
 
-1 npm install
+1 yarn
 
-2 npm run dev
+2 yarn dev
 
-3 浏览器打开http://localhost:3001
 
 # 生产坏境部署
 
-1 npm run build
+1 生成dll包，`yarn dll`
 
-2 拷贝dist文件夹至服务器即可
+2 `yarn build`
+
+3 拷贝dist文件夹至服务器即可

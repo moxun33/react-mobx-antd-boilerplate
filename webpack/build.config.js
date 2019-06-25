@@ -1,10 +1,10 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const SWPreCacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const commonConfig = require('./common.config.js');
 const TerserPlugin = require('terser-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const dllUtils = require('./utils/dll.js');
 const WPLoaders = require('./utils/loaders.js');
@@ -93,15 +93,7 @@ const buildConfig = {
 		}),
 		dllUtils.copyDllToAssets(),
 		...dllUtils.createDllReferences(),
-		dllUtils.addDllHtmlPath(),
-		new SWPreCacheWebpackPlugin({
-			cacheId: 'abs-project-react',
-			filename: 'service-worker.js',
-			minify: true,
-			mergeStaticsConfig: true,
-			navigateFallback: '/',
-			staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.*\.js$/]
-		})
+		dllUtils.addDllHtmlPath()
 	]
 };
 

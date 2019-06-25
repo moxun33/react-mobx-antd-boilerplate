@@ -44,14 +44,14 @@ class HorizontalLoginForm extends React.Component {
     const userNameError = isFieldTouched('userName') && getFieldError('userName');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
-      <Form layout="inline" onSubmit={this.handleSubmit}>
+      <Form layout='inline' onSubmit={this.handleSubmit}>
         <FormItem validateStatus={userNameError ? 'error' : ''} help={userNameError || ''}>
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }]
           })(
             <Input
-              prefix={<Icon type="user" style={{ fontSize: 13 }} />}
-              placeholder="Username"
+              prefix={<Icon type='user' style={{ fontSize: 13 }} />}
+              placeholder='Username'
               onBlur={this.changeUsername.bind(this)}
             />
           )}
@@ -61,15 +61,15 @@ class HorizontalLoginForm extends React.Component {
             rules: [{ required: true, message: 'Please input your Password!' }]
           })(
             <Input
-              prefix={<Icon type="lock" style={{ fontSize: 13 }} />}
-              type="password"
-              placeholder="Password"
+              prefix={<Icon type='lock' style={{ fontSize: 13 }} />}
+              type='password'
+              placeholder='Password'
               onBlur={this.changePassword.bind(this)}
             />
           )}
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit" disabled={hasErrors(getFieldsError())}>
+          <Button type='primary' htmlType='submit' disabled={hasErrors(getFieldsError())}>
             Log in
           </Button>
         </FormItem>
