@@ -3,18 +3,16 @@
  *
  **/
 
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
-import Login from 'components/Login'
+import Login from 'components/Login';
 
 export default class index extends Component {
-
-    render() {
-        return (
-            <div>
-                <Login/>
-
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Login />
+      </div>
+    );
+  }
 }

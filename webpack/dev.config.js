@@ -21,7 +21,7 @@ const devConfig = {
 	},
   devServer: {
     contentBase: path.join(__dirname, './dist'),
-    port: 3000,
+    port: 3005,
     compress: true,
     historyApiFallback: true, /*{
             rewrites: [
@@ -30,7 +30,8 @@ const devConfig = {
                 { from: /./, to: '/views/404.html' }
             ]
         },*/
-    host: '0.0.0.0',
+    host: 'localhost',
+    open:true,
     proxy: {
 
       '/api': {
